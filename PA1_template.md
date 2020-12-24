@@ -25,7 +25,7 @@ steps_per_day <- tapply(data$steps,
 hist(steps_per_day,breaks = 10, xlab = "Steps per Day")
 ```
 
-![](PA1_template_files/figure-html/Steps per Day-1.png)<!-- -->
+![](PA1_template_files/figure-html/StepsperDay-1.png)<!-- -->
 
 ```r
 mean_steps <- mean(steps_per_day,na.rm = TRUE)
@@ -58,7 +58,7 @@ plot(interval_vector,
      ylab = "Average Steps per 5-Minute Interval")
 ```
 
-![](PA1_template_files/figure-html/Average Daily Pattern-1.png)<!-- -->
+![](PA1_template_files/figure-html/AverageDailyPattern-1.png)<!-- -->
 
 ```r
 print(paste("5-minute interval with highest average steps:", interval_vector[which.max(mean_per_interval)],"minute"))
@@ -135,7 +135,7 @@ qplot(interval,
       xlab = "5-minute interval")
 ```
 
-![](PA1_template_files/figure-html/Weekday vs Weekend-1.png)<!-- -->
+![](PA1_template_files/figure-html/WeekdayvsWeekend-1.png)<!-- -->
 
 
 

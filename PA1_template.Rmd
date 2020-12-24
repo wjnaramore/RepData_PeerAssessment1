@@ -16,7 +16,7 @@ data <- read.csv("activity.csv")
 ## What is mean total number of steps taken per day?
 Sum the number of steps each day using tapply with an index of date. Plot a histogram of the steps per day, and then calculate the mean and median when removing NA's. It's okay to have the NA's for the vector plotted in the histogram, because no values were measured on those days.
 
-```{r Steps per Day, echo = TRUE}
+```{r StepsperDay, echo = TRUE}
 steps_per_day <- tapply(data$steps,
                         data$date,sum,
                         na.rm = FALSE)
@@ -30,7 +30,7 @@ print(paste("Median steps per day:",median_steps))
 
 ## What is the average daily activity pattern?
 The average for each 5-minute interval is calculated using the tapply function with an index of interval, and NA's removed. This is plotted with interval on the X-axis, and average steps on the Y-axis. The interval for the max steps value is found using which.max().
-```{r Average Daily Pattern, echo = TRUE}
+```{r AverageDailyPattern, echo = TRUE}
 mean_per_interval <- tapply(data$steps,data$interval,mean,na.rm = TRUE)
 interval_vector <- unique(data$interval)
 plot(interval_vector,
@@ -67,7 +67,7 @@ print(paste("Median steps per day:",median_steps))
 ```
 ## Are there differences in activity patterns between weekdays and weekends?
 First, use weekdays function to create a vector of day of week by row. Use %in% logical to separate weekdays and weekends, then create a new column in the data2 dataframe called weekend, which is a factor of either weekday of weekend. Then, use qplot to plot the average steps per time interval and weekend/weekday
-```{r Weekday vs Weekend, echo = TRUE}
+```{r WeekdayvsWeekend, echo = TRUE}
 day_of_week <- weekdays(as.Date(data2$date,format = "%Y-%m-%d"))
 weekdays_vector <- rep("",length(data2$date))
 weekdays_logical <- day_of_week %in% c("Monday","Tuesday","Wednesday","Thursday","Friday")
